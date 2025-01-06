@@ -28,7 +28,7 @@ const SignIn: NextPage<Props> = ({ providers }) => {
         </div>
 
         <p className="text-center text-sm">
-          use your Google account to sign in! <br />
+          use your Google account to sign in <br />
           <br />
           none of your data will be shared or sold with any third-parties
           <br /> <br /> your Google account is simply being used for a
