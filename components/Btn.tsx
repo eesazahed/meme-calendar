@@ -5,13 +5,16 @@ interface Props {
   onClick?: Function;
   submit?: boolean;
   color?: string;
+  noMargin?: boolean;
 }
 
-const Btn: NextPage<Props> = ({ text, onClick, color, submit }) => {
+const Btn: NextPage<Props> = ({ text, onClick, color, submit, noMargin }) => {
   return (
     <button
       style={{ background: color || "#1E90FF" }}
-      className="mt-8 hover:brightness-90 w-full text-white text-base py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline duration-200"
+      className={`${
+        noMargin ? "m-0 h-full mx-1" : "my-2 py-3"
+      } hover:brightness-90 w-full text-white text-base px-4 rounded-lg duration-200`}
       onClick={() => (onClick ? onClick() : {})}
       type={submit ? "submit" : "button"}
     >

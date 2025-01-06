@@ -5,8 +5,8 @@ const Footer: NextPage = () => {
   return (
     <footer className="py-8 md:mt-8 bg-black text-white text-center">
       <p>
-        Designed and developed by{" "}
-        <Link text="Eesa Zahed" href="https://eesa.zahed.ca" />
+        designed and developed by{" "}
+        <Link text="eesa zahed" href="https://eesa.zahed.ca" />
       </p>
     </footer>
   );

@@ -21,6 +21,19 @@ export default NextAuth({
       return token;
     },
     session: async ({ session }) => {
+      if (session) {
+        const userCount = await prisma.user.count();
+
+        if (userCount === 1) {
+          await prisma.user.update({
+            where: { email: String(session.user?.email) },
+            data: {
+              admin: true,
+            },
+          });
+        }
+      }
+
       return session;
     },
   },

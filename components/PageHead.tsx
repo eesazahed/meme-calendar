@@ -8,11 +8,8 @@ interface Props {
 const PageHead: NextPage<Props> = ({ title }) => {
   return (
     <Head>
-      <title>{`next-auth-boilerplate | ${String(title)}`}</title>
-      <meta
-        name="description"
-        content="next-auth-boilerplate. Made by Eesa Zahed"
-      />
+      <title>{`meme calendar | ${String(title)}`}</title>
+      <meta name="description" content="meme calendar. made by eesa zahed" />
       <link rel="icon" href="/assets/images/favicon.ico" />
     </Head>
   );

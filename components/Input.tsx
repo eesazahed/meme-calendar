@@ -30,7 +30,7 @@ const Input: NextPage<Props> = ({
   return (
     <div className={noMargin ? "m-0" : "mt-7"}>
       {label && (
-        <label className="block text-base mb-2" htmlFor="input">
+        <label className="block" htmlFor="input">
           {label}
         </label>
       )}
@@ -38,7 +38,9 @@ const Input: NextPage<Props> = ({
         type={url ? "url" : "text"}
         placeholder={placeholder}
         id="input"
-        className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+        className={`${
+          noMargin ? "m-0 h-full mx-1 py-4" : "my-4 py-3 mt-3"
+        } text-base shadow appearance-none border-none rounded w-full px-4 leading-tight focus:outline-none focus:shadow-outline`}
         value={parentData}
         onChange={(e) => updateParent(e.target.value)}
         onKeyDown={(e) => keydown(e)}

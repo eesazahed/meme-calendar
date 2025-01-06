@@ -31,7 +31,7 @@ const NavItem: NextPage<Props> = ({ text, href, auth }) => {
           className="block px-3 md:px-5 py-4 rounded-xl hover:bg-gray-700 cursor-pointer duration-100 text-white whitespace-nowrap"
         >
           <span className="text-nowrap">
-            {session.status === "authenticated" ? "Sign out" : "Sign in"}
+            {session.status === "authenticated" ? "sign out" : "sign in"}
           </span>
         </span>
       )}

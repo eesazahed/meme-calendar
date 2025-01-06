@@ -1,23 +1,25 @@
 import type { NextPage } from "next";
 import PageHead from "../components/PageHead";
 import Title from "../components/Title";
-import getUserFromSession from "../utils/getUserFromSession";
+import getCalendar from "../utils/getCalendar";
+import CalendarGrid from "../components/CalendarGrid";
 
 interface Props {
-  user: UserType;
+  calendar: VoteOptionType[];
 }
 
-const Home: NextPage<Props> = ({ user }) => {
+const Home: NextPage<Props> = ({ calendar }) => {
   return (
     <div>
       <PageHead title="Home" />
 
       <main>
-        <Title text="next-auth-boilerplate" emoji="&#128075;" gradient />
+        <Title text="meme calendar" emoji="&#128197;" gradient />
 
-        <p>Welcome</p>
+        <p>2025</p>
+        <br />
 
-        {user && <p>Logged in as {user.name}</p>}
+        {calendar && <CalendarGrid calendar={calendar} />}
       </main>
     </div>
   );
@@ -25,12 +27,12 @@ const Home: NextPage<Props> = ({ user }) => {
 
 export default Home;
 
-export const getServerSideProps = async (context: any) => {
-  const user = await getUserFromSession(context.req);
+export const getServerSideProps = async () => {
+  const calendar = await getCalendar();
 
   return {
     props: {
-      user,
+      calendar,
     },
   };
 };

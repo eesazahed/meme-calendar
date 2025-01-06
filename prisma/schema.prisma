@@ -4,8 +4,11 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:../db/dev.db"
+  // provider = "sqlite"
+  // url      = "file:../db/dev.db"
+  provider = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model Account {
@@ -32,17 +35,54 @@ model Session {
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id])
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String       @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?      @unique
   emailVerified DateTime?
   image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  admin         Boolean      @default(false)
   accounts      Account[]
   sessions      Session[]
+  voteOptions   VoteOption[] @relation("UserVoteOptions")
+  votes         Vote[]       @relation("UserVotes")
+}
+
+model VoteOption {
+  id                  String   @id @default(cuid())
+  title               String
+  description         String
+  image               String
+  userId              String
+  monthId             Int
+  numberOfVotes       Int      @default(0)
+  submissionTimestamp DateTime @default(now())
+
+  user  User   @relation("UserVoteOptions", fields: [userId], references: [id])
+  votes Vote[] @relation("VoteOptionVotes")
+}
+
+model Vote {
+  id            String   @id @default(cuid())
+  userId        String
+  voteOptionId  String
+  voteTimestamp DateTime @default(now())
+
+  voteOption VoteOption @relation("VoteOptionVotes", fields: [voteOptionId], references: [id])
+  user       User       @relation("UserVotes", fields: [userId], references: [id])
+
+  @@unique([userId, voteOptionId])
+}
+
+model Image {
+  id        String   @id @default(uuid())
+  image     String
+  userId    String
+  createdAt DateTime @default(now())
 }

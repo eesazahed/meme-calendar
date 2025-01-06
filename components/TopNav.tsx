@@ -10,7 +10,7 @@ const TopNav: NextPage = () => {
     <nav className="bg-black text-center md:hidden">
       <div className="flex justify-between">
         {session.status === "authenticated" && (
-          <NavItem text="Profile" href="profile" />
+          <NavItem text="profile" href="profile" />
         )}
         <NavItem auth />
       </div>

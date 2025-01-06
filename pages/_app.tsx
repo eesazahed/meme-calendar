@@ -14,14 +14,25 @@ const App = ({
   session: Session;
 }>) => (
   <SessionProvider session={pageProps.session}>
-    <div className="md:flex md:flex-col-reverse">
-      <TopNav />
-      <div className="mx-8 text-center p-16 leading-8 text-xl min-h-screen">
-        <Component {...pageProps} />
+    <div className="relative h-screen flex flex-col md:flex-col-reverse">
+      {/* Sticky top navbar */}
+      <div className="sticky top-0 z-10">
+        <TopNav />
       </div>
-      <Navbar />
+
+      {/* Main content that hides under the navbars */}
+      <div className="flex-1 overflow-y-auto pt-20 no-scrollbar">
+        <div className="text-center p-16 leading-8 text-xl min-h-screen">
+          <Component {...pageProps} />
+        </div>
+        <Footer />
+      </div>
+
+      {/* Sticky bottom navbar */}
+      <div className="sticky bottom-0 z-10">
+        <Navbar />
+      </div>
     </div>
-    <Footer />
   </SessionProvider>
 );
 
