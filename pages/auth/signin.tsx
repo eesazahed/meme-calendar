@@ -11,16 +11,16 @@ interface Props {
 const SignIn: NextPage<Props> = ({ providers }) => {
   return (
     <div>
-      <PageHead title="Sign in" />
+      <PageHead title="sign in" />
 
       <main>
-        <Title text="Sign in" />
+        <Title text="sign in" />
 
         <div className="max-w-[400px] mx-auto mb-16">
           {Object.values(providers).map((provider) => (
             <Btn
               key={provider.name}
-              text={`Sign in with ${provider.name}`}
+              text={`sign in with ${provider.name}`}
               onClick={() => signIn(provider.id)}
               color={provider.name === "GitHub" ? "gray" : ""}
             />
@@ -28,11 +28,11 @@ const SignIn: NextPage<Props> = ({ providers }) => {
         </div>
 
         <p className="text-center text-sm">
-          Use your Google account to sign in! <br />
+          use your Google account to sign in! <br />
           <br />
-          None of your data will be shared or sold with any third-parties.
-          <br /> <br /> Your Google account is simply being used for a
-          convenient authentication method.
+          none of your data will be shared or sold with any third-parties
+          <br /> <br /> your Google account is simply being used for a
+          convenient authentication method
         </p>
       </main>
     </div>
