@@ -9,6 +9,7 @@ import { useState } from "react";
 import VoteOption from "../components/VoteOption";
 import Btn from "../components/Btn";
 import Input from "../components/Input";
+import { UserType, VoteOptionType } from "../types";
 
 interface Props {
   user: UserType;

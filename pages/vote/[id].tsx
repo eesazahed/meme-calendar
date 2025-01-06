@@ -5,6 +5,7 @@ import PageHead from "../../components/PageHead";
 import Title from "../../components/Title";
 import { UserContext } from "../../context";
 import getUserFromSession from "../../utils/getUserFromSession";
+import { UserType, VoteOptionType } from "../../types";
 
 interface Props {
   user: UserType;

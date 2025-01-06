@@ -1,4 +1,5 @@
 import prisma from "../lib/prisma";
+import { VoteOptionType } from "../types";
 
 const getCalendar = async () => {
   try {

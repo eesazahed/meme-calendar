@@ -6,6 +6,7 @@ import PageHead from "../../components/PageHead";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import getUserFromSession from "../../utils/getUserFromSession";
+import { UserType } from "../../types";
 
 interface Props {
   user: UserType;

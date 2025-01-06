@@ -10,6 +10,7 @@ import Btn from "../components/Btn";
 import Success from "../components/Success";
 import Textarea from "../components/Textarea";
 import ImageUploadForm from "../components/ImageUploadForm";
+import { FormDataType, UserType } from "../types";
 
 interface Props {
   user: UserType;
@@ -83,9 +84,17 @@ const Create: NextPage<Props> = ({ user }) => {
       <main>
         <Title text="create" emoji="&#128221;" />
 
-        <p>fill out this form :)</p>
-
         <div className="max-w-[500px] mx-auto text-left">
+          <p className="text-sm my-16 pt-2 pb-4 px-4 shadow appearance-none border-none rounded-xl bg-[#181414]">
+            <span className="font-bold block mb-1">please note</span>
+            <ul className="ml-6 list-disc">
+              <li>search for the meme first before creating one</li>
+              <li>you cannot edit after submitting</li>
+              <li>you can only submit once a month</li>
+              <li>if you don&apos;t like your submission you can delete it</li>
+            </ul>
+          </p>
+
           {/* TITLE */}
           <div ref={titleRef}>
             <Input

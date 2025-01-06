@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import getUserFromSession from "../../../utils/getUserFromSession";
 import prisma from "../../../lib/prisma";
+import { FormDataType } from "../../../types";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "POST") {

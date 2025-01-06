@@ -3,6 +3,7 @@ import Btn from "./Btn";
 import { UserContext } from "../context";
 import { useContext, useState, useEffect } from "react";
 import nameOfMonthId from "../utils/nameOfMonthId";
+import { VoteOptionType } from "../types";
 
 interface Props {
   details: VoteOptionType;

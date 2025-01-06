@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { UserContext } from "../context";
 import getUserVoteOptions from "../utils/getUserVoteOptions";
 import VoteOption from "../components/VoteOption";
+import { UserType, VoteOptionType } from "../types";
 
 interface Props {
   user: UserType;

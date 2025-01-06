@@ -3,6 +3,7 @@ import PageHead from "../components/PageHead";
 import Title from "../components/Title";
 import getCalendar from "../utils/getCalendar";
 import CalendarGrid from "../components/CalendarGrid";
+import { VoteOptionType } from "../types";
 
 interface Props {
   calendar: VoteOptionType[];

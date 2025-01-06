@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import nameOfMonthId from "../utils/nameOfMonthId";
+import { VoteOptionType } from "../types";
 
 interface Props {
   calendar: VoteOptionType[];
