@@ -85,7 +85,7 @@ const Create: NextPage<Props> = ({ user }) => {
         <Title text="create" emoji="&#128221;" />
 
         <div className="max-w-[500px] mx-auto text-left">
-          <p className="text-sm my-16 pt-2 pb-4 px-4 shadow appearance-none border-none rounded-xl bg-[#181414]">
+          <div className="text-sm my-16 pt-2 pb-4 px-4 shadow appearance-none border-none rounded-xl dark:bg-[#181414]">
             <span className="font-bold block mb-1">please note</span>
             <ul className="ml-6 list-disc">
               <li>search for the meme first before creating one</li>
@@ -93,7 +93,7 @@ const Create: NextPage<Props> = ({ user }) => {
               <li>you can only submit once a month</li>
               <li>if you don&apos;t like your submission you can delete it</li>
             </ul>
-          </p>
+          </div>
 
           {/* TITLE */}
           <div ref={titleRef}>

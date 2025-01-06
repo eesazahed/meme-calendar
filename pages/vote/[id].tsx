@@ -6,6 +6,7 @@ import Title from "../../components/Title";
 import { UserContext } from "../../context";
 import getUserFromSession from "../../utils/getUserFromSession";
 import { UserType, VoteOptionType } from "../../types";
+import { useRouter } from "next/router";
 
 interface Props {
   user: UserType;
@@ -13,6 +14,23 @@ interface Props {
 }
 
 const VoteOptionPage: NextPage<Props> = ({ user, details }) => {
+  const router = useRouter();
+
+  const deleteUserVoteOption = async () => {
+    if (details) {
+      const request = await fetch(`/api/vote/deleteoption`, {
+        method: "DELETE",
+        body: JSON.stringify({ optionId: details.id }),
+      });
+
+      const data = await request.json();
+
+      if (data.type === "success") {
+        router.replace("/");
+      }
+    }
+  };
+
   return (
     <div>
       <PageHead title="Vote" />
@@ -22,7 +40,10 @@ const VoteOptionPage: NextPage<Props> = ({ user, details }) => {
 
         {details ? (
           <UserContext.Provider value={user}>
-            <VoteOption details={details} updateParent={() => {}} />{" "}
+            <VoteOption
+              details={details}
+              updateParent={() => deleteUserVoteOption()}
+            />
           </UserContext.Provider>
         ) : (
           <div>

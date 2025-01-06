@@ -3,7 +3,7 @@ import Link from "./Link";
 
 const Footer: NextPage = () => {
   return (
-    <footer className="py-8 md:mt-8 bg-black text-white text-center">
+    <footer className="py-8 mb-8 md:mt-8 bg-black text-white text-center">
       <p>
         designed and developed by{" "}
         <Link text="eesa zahed" href="https://eesa.zahed.ca" />

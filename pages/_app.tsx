@@ -21,8 +21,8 @@ const App = ({
       </div>
 
       {/* Main content that hides under the navbars */}
-      <div className="flex-1 overflow-y-auto pt-20 no-scrollbar">
-        <div className="text-center p-16 leading-8 text-xl min-h-screen">
+      <div className="flex-1 overflow-y-auto no-scrollbar">
+        <div className="text-center p-16 leading-8 text-xl min-h-screen bg-white dark:bg-[#222222]">
           <Component {...pageProps} />
         </div>
         <Footer />

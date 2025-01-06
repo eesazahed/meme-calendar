@@ -3,12 +3,25 @@ import { getProviders, signIn } from "next-auth/react";
 import Btn from "../../components/Btn";
 import Title from "../../components/Title";
 import PageHead from "../../components/PageHead";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { UserType } from "../../types";
+import getUserFromSession from "../../utils/getUserFromSession";
 
 interface Props {
+  user: UserType;
   providers: Object;
 }
 
-const SignIn: NextPage<Props> = ({ providers }) => {
+const SignIn: NextPage<Props> = ({ user, providers }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user) {
+      router.replace("/vote");
+    }
+  }, []);
+
   return (
     <div>
       <PageHead title="sign in" />
@@ -41,10 +54,11 @@ const SignIn: NextPage<Props> = ({ providers }) => {
 
 export default SignIn;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async (context: any) => {
+  const user = await getUserFromSession(context.req);
   const providers = await getProviders();
 
   return {
-    props: { providers },
+    props: { user, providers },
   };
 };

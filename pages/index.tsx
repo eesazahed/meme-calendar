@@ -15,10 +15,7 @@ const Home: NextPage<Props> = ({ calendar }) => {
       <PageHead title="Home" />
 
       <main>
-        <Title text="meme calendar" emoji="&#128197;" gradient />
-
-        <p>2025</p>
-        <br />
+        <Title text="meme calendar 2025" gradient />
 
         {calendar && <CalendarGrid calendar={calendar} />}
       </main>

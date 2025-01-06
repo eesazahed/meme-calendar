@@ -71,7 +71,7 @@ const VoteOption: NextPage<Props> = ({ details, updateParent }) => {
     <div
       className={`my-8 flex flex-col md:flex-row text-left rounded-3xl md:w-1/2 mx-auto ${
         user && user.id === details.userId
-          ? "bg-[#2c0f96] text-white"
+          ? "bg-[#8768fc] dark:bg-[#2c0f96] text-white"
           : "bg-[#ededed] dark:bg-black"
       }`}
     >
@@ -130,7 +130,10 @@ const VoteOption: NextPage<Props> = ({ details, updateParent }) => {
         <div className="text-lg italic pb-2 md:pb-0 pt-4 px-1 flex md:flex-col lg:flex-row justify-between">
           <div>{nameOfMonthId(details.monthId)}</div>
           <div>
-            <span className="text-cyan-500">{voteCount}</span> vote
+            <span className="text-cyan-200 dark:text-cyan-500">
+              {voteCount}
+            </span>{" "}
+            vote
             {voteCount !== 1 && "s"}
           </div>
         </div>
