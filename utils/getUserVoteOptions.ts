@@ -19,10 +19,21 @@ const getUserVoteOptions = async (req?: any) => {
       },
     });
 
-    const formattedVoteOptions = voteOptions.map((option) => ({
-      ...option,
-      submissionTimestamp: option.submissionTimestamp.toISOString(),
-    }));
+    const formattedVoteOptions = voteOptions.map(
+      (option: {
+        id: string;
+        title: string;
+        description: string;
+        image: string;
+        userId: string;
+        monthId: number;
+        numberOfVotes: number;
+        submissionTimestamp: Date;
+      }) => ({
+        ...option,
+        submissionTimestamp: option.submissionTimestamp.toISOString(),
+      })
+    );
 
     return formattedVoteOptions;
   } catch {
