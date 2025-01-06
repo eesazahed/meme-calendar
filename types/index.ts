@@ -25,3 +25,5 @@ interface VoteOptionType {
   numberOfVotes: number;
   submissionTimestamp: string;
 }
+
+export type { UserType, FormDataType, VoteOptionType };
