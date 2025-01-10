@@ -16,8 +16,8 @@ const handler = async (req: any, res: any) => {
       voteOptions = await prisma.voteOption.findMany({
         where: {
           OR: [
-            { title: { contains: search } },
-            { description: { contains: search } },
+            { title: { contains: search, mode: "insensitive" } },
+            { description: { contains: search, mode: "insensitive" } },
           ],
         },
         orderBy: { numberOfVotes: "desc" },
