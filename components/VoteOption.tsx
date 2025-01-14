@@ -31,6 +31,19 @@ const VoteOption: NextPage<Props> = ({ details, updateParent }) => {
     }
   }, [user, details.id]);
 
+  const banUser = async () => {
+    const request = await fetch("/api/vote/banuser", {
+      method: "POST",
+      body: JSON.stringify({ banUserId: details.userId }),
+    });
+
+    const data = await request.json();
+
+    if (data.type === "success") {
+      updateParent();
+    }
+  };
+
   const vote = async () => {
     const request = await fetch("/api/vote/voteoption", {
       method: "POST",
@@ -111,6 +124,11 @@ const VoteOption: NextPage<Props> = ({ details, updateParent }) => {
           <div className="w-full">
             <Btn text="copy link" color="green" onClick={copyLink} />
           </div>
+          {user && user.admin && (
+            <div className="w-full">
+              <Btn text="ban user" color="maroon" onClick={banUser} />
+            </div>
+          )}
         </div>
       </div>
       <div className="md:w-1/2 m-4 md:m-8">
@@ -130,10 +148,7 @@ const VoteOption: NextPage<Props> = ({ details, updateParent }) => {
         <div className="text-lg italic pb-2 md:pb-0 pt-4 px-1 flex md:flex-col lg:flex-row justify-between">
           <div>{nameOfMonthId(details.monthId)}</div>
           <div>
-            <span className="text-cyan-200 dark:text-cyan-500">
-              {voteCount}
-            </span>{" "}
-            vote
+            <span>{voteCount}</span> vote
             {voteCount !== 1 && "s"}
           </div>
         </div>
