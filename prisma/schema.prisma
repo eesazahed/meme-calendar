@@ -48,6 +48,7 @@ model User {
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
   admin         Boolean      @default(false)
+  banned         Boolean      @default(false)
   accounts      Account[]
   sessions      Session[]
   voteOptions   VoteOption[] @relation("UserVoteOptions")
