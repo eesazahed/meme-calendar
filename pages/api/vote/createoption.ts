@@ -17,6 +17,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
   const userId = user.id;
 
+  // CHECK IF BANNED
+  if (user.banned) {
+    return res.status(401).json({ message: "cannot post", type: "auth" });
+  }
+
   // CHECK IF USER HAS ALREADY SUBMITTED THIS MONTH
   const currentMonth = new Date().getMonth();
 
